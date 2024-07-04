@@ -1,0 +1,22 @@
+#playbook.yaml
+---
+- name: To install docker and java on test server
+  hosts: jenkin_test
+  become: true
+  tasks:
+    - name: To install Java and Docker
+      script: test.sh
+
+- name: To install docker and java on prod server
+  hosts: jenkin_prod
+  become: true
+  tasks:
+    - name: To install Java and Docker
+      script: test.sh
+
+- name: To_install_jenkins_on_jenkins_master
+  hosts: jenkin_master
+  become: true
+  tasks:
+    - name: To install packages
+      script: jenkins.sh
